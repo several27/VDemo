@@ -16,9 +16,10 @@ object Main {
 
     val df_Customers: Source = Customers(spark)
 
-    val df_Orders:       Source   = Orders(spark)
-    val df_ByCustomerId: Join     = ByCustomerId(spark, df_Customers, df_Orders)
-    val df_Reformat0:    Reformat = Reformat0(spark,    df_ByCustomerId)
+    val df_Orders:       Source    = Orders(spark)
+    val df_ByCustomerId: Join      = ByCustomerId(spark, df_Customers, df_Orders)
+    val df_AddFullName:  Reformat  = AddFullName(spark,  df_ByCustomerId)
+    val df_Aggregate0:   Aggregate = Aggregate0(spark,   df_AddFullName)
 
   }
 

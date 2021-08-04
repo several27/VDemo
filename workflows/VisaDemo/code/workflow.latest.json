@@ -23,6 +23,7 @@
       },
       "Orders" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -42,6 +43,7 @@
       },
       "ByCustomerId" : {
         "component" : "Join",
+        "group" : null,
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
@@ -108,17 +110,123 @@
         },
         "lineage" : ""
       },
-      "Reformat0" : {
+      "AddFullName" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ ]
+          "functions" : [ {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "customer_id"
+            } ],
+            "addReplaceColumn" : "customer_id"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "first_name"
+            } ],
+            "addReplaceColumn" : "first_name"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "last_name"
+            } ],
+            "addReplaceColumn" : "last_name"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "phone"
+            } ],
+            "addReplaceColumn" : "phone"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "order_id"
+            } ],
+            "addReplaceColumn" : "order_id"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "amount"
+            } ],
+            "addReplaceColumn" : "amount"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "order_date"
+            } ],
+            "addReplaceColumn" : "order_date"
+          }, {
+            "addReplaceColumn" : "full_name",
+            "functionName" : "column_expression",
+            "inputArgs" : [ {
+              "expr" : "CONCAT(first_name, last_name)",
+              "type" : "sql"
+            } ]
+          } ]
         },
         "metadata" : {
-          "label" : "Reformat0",
+          "label" : "AddFullName",
           "x" : 540,
           "y" : 277
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Aggregate0" : {
+        "component" : "Aggregate",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "aggcols" : [ {
+            "targetCol" : "orders",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "count(order_id)"
+            }
+          }, {
+            "targetCol" : "amounts",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "sum(amount)"
+            }
+          } ],
+          "columns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "customer_id"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "first_name"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "last_name"
+            }
+          }, {
+            "targetCol" : "phone",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "phone"
+            }
+          } ],
+          "opType" : "groupBy"
+        },
+        "metadata" : {
+          "label" : "Aggregate0",
+          "x" : 692,
+          "y" : 274
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -159,18 +267,31 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Reformat0",
+        "process" : "AddFullName",
         "port" : "in"
       },
       "metadata" : {
         "route" : "e_S1s5bi_kF"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "AddFullName",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Aggregate0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_ByygfsdkK"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1628119445389,
+      "lastUpdated" : 1628119550844,
       "id" : "VisaDemo",
       "memory" : 1,
       "imported" : true,
