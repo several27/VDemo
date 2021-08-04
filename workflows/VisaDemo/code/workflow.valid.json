@@ -249,12 +249,31 @@
         },
         "metadata" : {
           "label" : "CountOrders",
-          "x" : 692,
-          "y" : 274
+          "x" : 706,
+          "y" : 277
         },
         "ports" : {
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Target0" : {
+        "component" : "Target",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "3377",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Target0",
+          "x" : 853,
+          "y" : 276
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
         },
         "lineage" : ""
       }
@@ -311,11 +330,24 @@
         "route" : "e_ByygfsdkK"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "CountOrders",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Target0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SJ8zMju1F"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1628119557625,
+      "lastUpdated" : 1628119597608,
       "id" : "VisaDemo",
       "memory" : 1,
       "imported" : true,

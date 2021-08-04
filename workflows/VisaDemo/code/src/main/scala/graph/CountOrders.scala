@@ -10,7 +10,7 @@ import udfs.UDFs._
 import udfs._
 import graph._
 
-@Visual(id = "CountOrders", label = "CountOrders", x = 692, y = 274, phase = 0)
+@Visual(id = "CountOrders", label = "CountOrders", x = 706, y = 277, phase = 0)
 object CountOrders {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {
