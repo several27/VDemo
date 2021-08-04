@@ -1,0 +1,41 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "VisaDemo",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "imported" : true,
+      "interimMode" : "full",
+      "codeMode" : "sparse",
+      "buildSystem" : "maven"
+    },
+    "connections" : [ ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "Customers" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Customers",
+          "x" : 170,
+          "y" : 98
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "3375",
+          "version" : 0
+        }
+      }
+    }
+  }
+}
