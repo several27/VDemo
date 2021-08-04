@@ -117,54 +117,77 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "first_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "first_name"
             } ],
-            "addReplaceColumn" : "first_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "addReplaceColumn" : "last_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "phone",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "phone"
             } ],
-            "addReplaceColumn" : "phone"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_id"
             } ],
-            "addReplaceColumn" : "order_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "amount"
             } ],
-            "addReplaceColumn" : "amount"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_date",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_date"
             } ],
-            "addReplaceColumn" : "order_date"
+            "comment" : null,
+            "enabled" : true
           }, {
             "addReplaceColumn" : "full_name",
             "functionName" : "column_expression",
             "inputArgs" : [ {
               "expr" : "CONCAT(first_name, last_name)",
               "type" : "sql"
-            } ]
+            } ],
+            "comment" : null,
+            "enabled" : true
           } ]
         },
         "metadata" : {
@@ -178,8 +201,9 @@
         },
         "lineage" : ""
       },
-      "Aggregate0" : {
+      "CountOrders" : {
         "component" : "Aggregate",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -224,7 +248,7 @@
           "opType" : "groupBy"
         },
         "metadata" : {
-          "label" : "Aggregate0",
+          "label" : "CountOrders",
           "x" : 692,
           "y" : 274
         },
@@ -280,7 +304,7 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Aggregate0",
+        "process" : "CountOrders",
         "port" : "in"
       },
       "metadata" : {
@@ -291,7 +315,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1628119550844,
+      "lastUpdated" : 1628119557625,
       "id" : "VisaDemo",
       "memory" : 1,
       "imported" : true,
