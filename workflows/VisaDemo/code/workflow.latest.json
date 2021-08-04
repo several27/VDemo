@@ -3,6 +3,7 @@
     "processes" : {
       "Customers" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -11,21 +12,165 @@
         },
         "metadata" : {
           "label" : "Customers",
-          "x" : 170,
-          "y" : 98
+          "x" : 166,
+          "y" : 194
         },
         "ports" : {
           "inputs" : [ ],
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Orders" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "3376",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Orders",
+          "x" : 167,
+          "y" : 371
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "ByCustomerId" : {
+        "component" : "Join",
+        "properties" : {
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "cache" : false,
+          "detailedStats" : false,
+          "phase" : 0,
+          "joinType" : "inner",
+          "joinCondition" : {
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")",
+            "format" : "scala"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "expr" : "col(\"left.customer_id\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "expr" : "col(\"left.first_name\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "expression" : {
+              "expr" : "col(\"left.last_name\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "phone",
+            "expression" : {
+              "expr" : "col(\"left.phone\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "order_id",
+            "expression" : {
+              "expr" : "col(\"right.order_id\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "amount",
+            "expression" : {
+              "expr" : "col(\"right.amount\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "order_date",
+            "expression" : {
+              "expr" : "col(\"right.order_date\")",
+              "format" : "scala"
+            }
+          } ]
+        },
+        "metadata" : {
+          "label" : "ByCustomerId",
+          "x" : 369,
+          "y" : 275
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 540,
+          "y" : 277
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
-    "connections" : [ ],
+    "connections" : [ {
+      "src" : {
+        "process" : "Customers",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "ByCustomerId",
+        "port" : "left"
+      },
+      "metadata" : {
+        "route" : "e_S1JdWs_JY"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Orders",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "ByCustomerId",
+        "port" : "right"
+      },
+      "metadata" : {
+        "route" : "e_HJWOZiOyF"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "ByCustomerId",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_S1s5bi_kF"
+      },
+      "lineage" : ""
+    } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1628119270447,
+      "lastUpdated" : 1628119445389,
       "id" : "VisaDemo",
       "memory" : 1,
       "imported" : true,
