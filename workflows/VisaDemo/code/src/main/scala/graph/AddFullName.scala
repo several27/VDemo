@@ -10,7 +10,7 @@ import udfs.UDFs._
 import udfs._
 import graph._
 
-@Visual(id = "AddFullName", label = "AddFullName", x = 540, y = 277, phase = 0)
+@Visual(id = "AddFullName", label = "AddFullName", x = 540, y = 276, phase = 0)
 object AddFullName {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
