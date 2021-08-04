@@ -1,0 +1,74 @@
+{
+  "tests" : [ {
+    "name" : "Unit Test",
+    "data" : {
+      "in" : {
+        "columns" : [ "first_name", "last_name" ],
+        "values" : [ [ "Waite", "Petschelt" ], [ "Waite", "Petschelt" ], [ "Constance", "Sleith" ], [ "Viva", "Schulke" ], [ "Barrett", "Amies" ], [ "Kit", "Skamell" ], [ "Viva", "Schulke" ], [ "Gillan", "Heritege" ], [ "Ogdan", "Bussetti" ], [ "Homer", "Lindstedt" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "first_name",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : { }
+          }, {
+            "name" : "last_name",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : { }
+          } ]
+        },
+        "predicates" : [ ],
+        "selected" : {
+          "first_name" : {
+            "columns" : [ ],
+            "port" : ""
+          },
+          "last_name" : {
+            "columns" : [ ],
+            "port" : ""
+          }
+        }
+      },
+      "out" : {
+        "columns" : [ "first_name", "last_name", "full_name" ],
+        "values" : [ [ "Waite", "Petschelt", "Waite - Petschelt" ], [ "Waite", "Petschelt", "Waite - Petschelt" ], [ "Constance", "Sleith", "Constance - Sleith" ], [ "Viva", "Schulke", "Viva - Schulke" ], [ "Barrett", "Amies", "Barrett - Amies" ], [ "Kit", "Skamell", "Kit - Skamell" ], [ "Viva", "Schulke", "Viva - Schulke" ], [ "Gillan", "Heritege", "Gillan - Heritege" ], [ "Ogdan", "Bussetti", "Ogdan - Bussetti" ], [ "Homer", "Lindstedt", "Homer - Lindstedt" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "first_name",
+            "type" : "string",
+            "nullable" : false,
+            "metadata" : { }
+          }, {
+            "name" : "last_name",
+            "type" : "string",
+            "nullable" : false,
+            "metadata" : { }
+          }, {
+            "name" : "full_name",
+            "type" : "string",
+            "nullable" : false,
+            "metadata" : { }
+          } ]
+        },
+        "predicates" : [ ],
+        "selected" : {
+          "full_name" : {
+            "columns" : [ ],
+            "port" : ""
+          },
+          "last_name" : {
+            "columns" : [ ],
+            "port" : ""
+          },
+          "first_name" : {
+            "columns" : [ ],
+            "port" : ""
+          }
+        }
+      }
+    }
+  } ]
+}
