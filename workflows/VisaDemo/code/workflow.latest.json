@@ -8,64 +8,80 @@
           "src_desc" : "",
           "phase" : 0,
           "ramp" : 0,
-          "detailedStats" : false,
+          "detailedStats" : true,
           "udf_definitions" : [ ],
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "first_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "first_name"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "first_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "last_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "phone",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "phone"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "phone"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_id"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "order_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "amount"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "amount"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_date",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_date"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "order_date"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "full_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "concat(first_name, ' - ', last_name)"
             } ],
-            "enabled" : true,
-            "addReplaceColumn" : "full_name"
+            "comment" : null,
+            "enabled" : true
           } ],
           "limit" : 0
         },
@@ -353,7 +369,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1628120757345,
+      "lastUpdated" : 1628121704915,
       "id" : "VisaDemo",
       "memory" : 1,
       "imported" : true,
